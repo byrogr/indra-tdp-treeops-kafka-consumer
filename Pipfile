@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+appdirs = "==1.4.4"
+certifi = "==2021.5.30"
+distlib = "==0.3.2"
+filelock = "==3.0.12"
+mysql-connector-python = "==8.0.23"
+pipenv = "==2021.5.29"
+six = "==1.16.0"
+virtualenv = "==20.4.7"
+virtualenv-clone = "==0.5.4"
+kafka-python = "*"
+python-dotenv = "*"
+pylint = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
