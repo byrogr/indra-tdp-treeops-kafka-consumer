@@ -4,6 +4,7 @@ from json import loads
 from dotenv import load_dotenv
 from kafka import KafkaConsumer
 
+from services.consumer import saveTicketRaw
 
 load_dotenv()
 
@@ -25,3 +26,4 @@ consumer = KafkaConsumer(
 for message in consumer:
     data = message.value
     print(data)
+    saveTicketRaw(data)
