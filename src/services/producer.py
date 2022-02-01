@@ -3,7 +3,7 @@ import json
 import random
 
 from datetime import datetime
-from utils.generator import generate_message
+from generator import generate_message
 from kafka import KafkaProducer
 
 

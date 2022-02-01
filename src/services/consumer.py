@@ -28,7 +28,7 @@ def saveTicketRaw(event):
     eventTime = event['eventTime']
     eventType = event['eventType']
     ticket_detalle = json.dumps(ticket)
-    ticket_notes = preparedNoteField(ticket['note'][0]['text'])
+    #ticket_notes = preparedNoteField(ticket['note'][0]['text'])
     data = (co_ticket, eventId, eventTime, eventType, ticket_detalle)
     with conn:
         with conn.cursor() as cursor:

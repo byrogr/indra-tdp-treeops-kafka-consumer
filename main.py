@@ -1,19 +1,19 @@
 import os
+import json
 
-from json import loads
 from dotenv import load_dotenv
 from kafka import KafkaConsumer
 
-from services.consumer import saveTicketRaw
+from src.services.consumer import saveTicketRaw
 
 load_dotenv()
 
 
 broker_1 = "{}:{}".format(os.getenv('REMEDY_KAFKA_HOST_BROKER_1'),  os.getenv('REMEDY_KAFKA_PORT_1'))
-broker_2 = "{}:{}".format(os.getenv('REMEDY_KAFKA_HOST_BROKER_2'),  os.getenv('REMEDY_KAFKA_PORT_2'))
+#broker_2 = "{}:{}".format(os.getenv('REMEDY_KAFKA_HOST_BROKER_2'),  os.getenv('REMEDY_KAFKA_PORT_2'))
 
 print(f'Conectando al broker {broker_1} ...')
-print(f'Conectando al broker {broker_2} ...')
+#print(f'Conectando al broker {broker_2} ...')
 
 consumer = KafkaConsumer(
     os.getenv('REMEDY_KAFKA_TOPIC_CREATE'),
@@ -24,6 +24,6 @@ consumer = KafkaConsumer(
 )
 
 for message in consumer:
-    data = message.value
-    print(data)
-    saveTicketRaw(data)
+    event = json.loads(message.value)
+    print(event)
+    saveTicketRaw(event)
